@@ -1,0 +1,18 @@
+.login-form{
+  margin:auto;
+  padding:auto;
+  vertical-align: center;
+  width:30em;
+}
+.login-input{
+  width:100%;
+}
+.pagediv{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;  
+}
+.login-title{
+  text-align:center
+}
