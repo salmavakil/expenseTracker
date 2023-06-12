@@ -15,7 +15,7 @@ const categorytRouter = require('./Routes/Category');
 app.use('/category',categorytRouter);
 
 db.sequelize.sync().then(()=>{
-app.listen(8080,()=>{
+app.listen(8081,()=>{
     console.log('Server Running...')
 })
 })

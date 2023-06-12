@@ -24,7 +24,7 @@ function Registration() {
  
      const onSubmit = (data)=>{
         const payload = {username:data.username, password: data.password};
-         axios.post("http://localhost:8080/users/register",payload).then((response)=>{
+         axios.post("http://localhost:8081/users/register",payload).then((response)=>{
             console.log('.....response',response.data)
                 if(!response.data.error)  {
                 //todo setauthstate

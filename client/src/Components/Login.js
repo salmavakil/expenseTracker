@@ -21,7 +21,7 @@ function Login() {
      })
  
      const onSubmit = (data)=>{
-         axios.post("http://localhost:8080/users/login",data).then((response)=>{
+         axios.post("http://localhost:8081/users/login",data).then((response)=>{
             console.log('.....response',response.data)
                 if(!response.data.error)  {
                 //todo setauthstate
@@ -33,7 +33,8 @@ function Login() {
          })
      }
   return (
-    <div>
+    <>
+    <div className='pagediv'>
         <div className='card login-form'>
         <h2 className="card-title login-title">Login</h2>
             <div className='card-body'>
@@ -59,7 +60,8 @@ function Login() {
         <div className='mt-3'>Not a member?<Link to={'/registration'}>register</Link></div>
         </div>
         </div>
-    </div>
+        </div>
+    </>
   )
 }
 

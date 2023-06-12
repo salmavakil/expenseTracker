@@ -30,11 +30,13 @@ router.post('/login',async (req,res)=>{
         res.json({error:'User does not exist!'});
         res.status = 404;
     }
+    if(user){
         bcrypt.compare(payload.password, user.password).then(async (response)=>{
             if(!response) res.json('Wrong username and password combination!');
             const accessToken = sign({data:{username:user.username, id:user.id},exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 10)}, key );
             res.json({token:accessToken,username:user.username,id:user.id})
         })
+    }
     })
 
 router.get("/authenticate",validateToken, async (req,res)=>{

@@ -20,7 +20,8 @@ router.get('/',validateToken, async(req,res)=>{
 
 router.post('/',validateToken,async(req,res)=>{
     try{
-        await category.Create(req.body);
+        const payload = {name:req.body.name,UserId:req.user.id}
+        await Category.create(payload);
         res.json({message:'Category added successfully'})
     }catch(err){
         if(err) res.json({error:err});

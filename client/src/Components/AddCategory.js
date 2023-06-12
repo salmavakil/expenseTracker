@@ -6,16 +6,14 @@ import Button from 'react-bootstrap/Button';
 function AddCategory(props) {
   return (
     <>
-      <Modal.Dialog>
+      <Modal show={props.showModal}>
         <Modal.Header closeButton>
           <Modal.Title>
-           Sample Modal Heading
+           Add new category
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-           This is the sample text for our Modal
-          </p>
+          <input/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary">
@@ -25,7 +23,7 @@ function AddCategory(props) {
            Close
           </Button>
         </Modal.Footer>
-      </Modal.Dialog>
+      </Modal>
     </>
   )
 }

@@ -14,7 +14,7 @@ function App() {
   const [authState,setAuthState] =useState({username:'',id:'',status:false});
 
   useEffect(()=>{
-    axios.get("http://localhost:8080/users/authenticate", {headers:{accessToken:localStorage.getItem('accessToken')}}).then((response)=>{
+    axios.get("http://localhost:8081/users/authenticate", {headers:{accessToken:localStorage.getItem('accessToken')}}).then((response)=>{
       if(response.data.error) setAuthState({username:'',id:'',status:false});
       else setAuthState({username:response.data.username,id:response.data.id,status:true});
     })
@@ -23,12 +23,12 @@ function App() {
     <div>
       <authContext.Provider value={{authState, setAuthState}}>
       {authState.status && <Navbar></Navbar>}
-      <div className='pagediv'>
+      <div>
     <Router>
       <Routes>
-        <Route path='/' Component={Transactions}/>
-        <Route path='/Wallet' Component={Wallet}/>
-        <Route path='/Category' Component={Category}/>
+        <Route path='/transactions' Component={Transactions}/>
+        <Route path='/wallet' Component={Wallet}/>
+        <Route path='/category' Component={Category}/>
         <Route path='/login' Component={Login}/>
         <Route path='/registration' Component={Registration}/>
       </Routes>
