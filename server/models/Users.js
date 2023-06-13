@@ -12,15 +12,18 @@ module.exports = (sequelize,DataTypes)=>{
 
     Users.associate = (models)=>{
         Users.hasMany(models.Transactions, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            foreignKey: 'UserId'
         })
 
     Users.hasMany(models.Wallet, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            foreignKey: 'UserId'
         })
 
     Users.hasMany(models.Category, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            foreignKey: 'UserId'
         })
     }
     
