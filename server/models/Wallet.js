@@ -19,11 +19,13 @@ module.exports = (sequelize,DataTypes)=>{
     Wallet.associate = (models)=>{
         Wallet.hasMany(models.Transactions, {
             onDelete: "cascade",
-            as:'Transactions'
+            as:'Transactions',
+            allowNull: false
         })
         Wallet.belongsTo(models.Users,{
             foreignKey: 'UserId',
-            as: 'Users'
+            as: 'Users',
+            allowNull: false
         })
     }
     

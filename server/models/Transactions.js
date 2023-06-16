@@ -23,15 +23,18 @@ module.exports = (sequelize,DataTypes)=>{
     Transactions.associate = (models)=>{
         Transactions.belongsTo(models.Users,{
             foreignKey: 'UserId',
-            as: 'Users'
+            as: 'Users',
+            allowNull: false
         })
         Transactions.belongsTo(models.Wallet,{
             foreignKey: 'WalletId',
-            as: 'Wallet'
+            as: 'Wallet',
+            allowNull: false
         })
         Transactions.belongsTo(models.Category,{
             foreignKey: 'CategoryId',
-            as: 'Category'
+            as: 'Category',
+            allowNull: false
         })
     }
     

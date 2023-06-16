@@ -16,19 +16,22 @@ module.exports = (sequelize,DataTypes)=>{
         Users.hasMany(models.Transactions, {
             onDelete: "cascade",
             foreignKey: 'UserId',
-            as: 'Transactions'
+            as: 'Transactions',
+            allowNull: false
         })
 
     Users.hasMany(models.Wallet, {
             onDelete: "cascade",
             foreignKey: 'UserId',
-            as: 'Wallet'
+            as: 'Wallet',
+            allowNull: false
         })
 
     Users.hasMany(models.Category, {
             onDelete: "cascade",
             foreignKey: 'UserId',
-            as: 'Category'
+            as: 'Category',
+            allowNull: false
         })
     }
     
