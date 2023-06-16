@@ -4,10 +4,17 @@ module.exports = (sequelize,DataTypes)=>{
         type: DataTypes.STRING,
         allowNull: false
     }
+    },{
+        freezeTableName: true
     });
     Category.associate = (models)=>{
         Category.hasMany(models.Transactions, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            as: 'Transactions'
+        })
+        Category.belongsTo(models.Users,{
+            foreignKey: 'UserId',
+            as: 'Users'
         })
     }
     

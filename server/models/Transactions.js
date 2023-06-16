@@ -16,7 +16,24 @@ module.exports = (sequelize,DataTypes)=>{
         type: DataTypes.STRING,
         allowNull:true
     }
+    },{
+        freezeTableName: true
     });
+
+    Transactions.associate = (models)=>{
+        Transactions.belongsTo(models.Users,{
+            foreignKey: 'UserId',
+            as: 'Users'
+        })
+        Transactions.belongsTo(models.Wallet,{
+            foreignKey: 'WalletId',
+            as: 'Wallet'
+        })
+        Transactions.belongsTo(models.Category,{
+            foreignKey: 'CategoryId',
+            as: 'Category'
+        })
+    }
     
     return Transactions
     }
